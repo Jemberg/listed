@@ -7,8 +7,9 @@ RUN addgroup --system listed --gid $GID && adduser --disabled-password --system 
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+RUN echo "deb http://archive.debian.org/debian stretch main contrib non-free" > /etc/apt/sources.li
 RUN apt-get update \
-    && apt-get install -y git build-essential libmariadb-dev curl imagemagick python \
+    && apt-get install -y git build-essential libmariadb-dev curl imagemagick python netcat \
     && apt-get -y autoclean
 
 RUN mkdir -p /usr/local/nvm

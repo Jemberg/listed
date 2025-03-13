@@ -5,6 +5,8 @@ services:
     entrypoint: ["./wait-for.sh", "db", "3306", "./docker/entrypoint.sh", "start-local"]
     env_file: .env
     restart: unless-stopped
+    networks:
+      - listed
     environment:
       DB_HOST: db
     ports:
@@ -18,6 +20,8 @@ services:
       MYSQL_USER: '${DB_USERNAME}'
       MYSQL_PASSWORD: '${DB_PASSWORD}'
       MYSQL_ROOT_PASSWORD: '${DB_ROOT_PASSWORD}'
+    networks:
+      - listed
     ports:
       - 3306
     restart: unless-stopped
@@ -25,3 +29,6 @@ services:
     volumes:
       - ./data:/var/lib/mysql
 
+networks:
+  listed:
+    name: listed
