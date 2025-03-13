@@ -1,4 +1,4 @@
-FROM ruby:2.6.5-slim-stretch
+FROM ruby:2.6.5
 
 ARG UID=1000
 ARG GID=1000
@@ -39,7 +39,7 @@ COPY --chown=$UID:$GID package.json yarn.lock Gemfile Gemfile.lock /listed/
 
 RUN yarn install --pure-lockfile
 
-RUN gem install bundler && bundle install
+RUN gem install bundler -v 2.4.22 && bundle install
 
 COPY --chown=$UID:$GID . /listed
 
