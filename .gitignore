@@ -4,6 +4,9 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# Jetbrains
+.idea
+
 # OS & IDE
 .DS_Store
 
@@ -43,7 +46,6 @@ dump.rdb
 /data/
 
 /public/packs
-/node_modules
 
 # letsencrypt
 config/letsencrypt.key
